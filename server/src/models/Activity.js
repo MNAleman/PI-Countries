@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
     created: {
       type:DataTypes.BOOLEAN,
       defaultValue: true,
-//cada vez que cree una Actividad, le voy a agregar una columna llamada created seteado en true y el TRUE me va a determinar que viene de la DB 
+
     },
     
     

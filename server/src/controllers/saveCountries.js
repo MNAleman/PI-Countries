@@ -17,7 +17,7 @@ const getAllCountries = async () => {
         return saveAllCountries;
     } catch (error) {
         console.error("Error in getAllCountries:", error);
-        throw error; // Puedes manejar el error adecuadamente en tu aplicación
+        throw error;
     }
 };
 
