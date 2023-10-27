@@ -14,6 +14,7 @@ const simplifiedCountries = (countries) => {
                 population: country.population,
                 maps: country.maps.googleMaps,
                 timezones: country.timezones
+                
             }));
     
 };

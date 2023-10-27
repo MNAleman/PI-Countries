@@ -1,10 +1,17 @@
+const { getAllCountriesByName } = require('../controllers/getCountriesByName');
 const { getAllCountries } = require('../controllers/saveCountries');
 
+
 const getCountriesHandler = async (req, res) => {
-    const { country } = req.query;
+    const { name } = req.query;
     try {
-        const response = await getAllCountries(country);
-        res.status(200).json(response);
+        if(name){
+            const countryByName = await getAllCountriesByName(name);
+            res.status(200).json(countryByName);
+        }else{
+            const allCountries = await getAllCountries();
+            res.status(200).json(allCountries);
+        }
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

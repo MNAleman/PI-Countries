@@ -8,16 +8,18 @@ const URL = `http://localhost:5000/countries`;
 
 const getAllCountries = async () => {
     try {
-        const infoApi = (await axios.get(`${URL}`)).data;
-        const infoTodb = simplifiedCountries(infoApi);
+        const existingCountries = await Country.findAll();
 
-        const saveAllCountries = await Country.bulkCreate(infoTodb);
-          
-
-        return saveAllCountries;
+        if (existingCountries.length === 0) {
+            const infoApi = (await axios.get(`${URL}`)).data;
+            const infoToDb = simplifiedCountries(infoApi);
+            const saveAllCountries = await Country.bulkCreate(infoToDb);
+            return saveAllCountries;
+        } else {
+            return existingCountries;
+        }
     } catch (error) {
-        console.error("Error in getAllCountries:", error);
-        throw error;
+        throw new Error(`Error in getAllCountries: ${error.message}`);
     }
 };
 
