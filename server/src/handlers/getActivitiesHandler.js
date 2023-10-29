@@ -1,3 +1,4 @@
+const { getAllActivities, getActivitiesByName } = require("../controllers/getActivities");
 const getActivitiesHandler = async (req, res) => {
     const { name } = req.query;
     try {
