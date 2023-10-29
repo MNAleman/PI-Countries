@@ -1,7 +1,8 @@
-const Activity = require("../models/Activity")
+const { Activity, Country } = require("../db");
+const { Op } = require("sequelize");
 
 const getAllActivities = async ()=>{
-    const activityDB = await Activity.findAll()
+    const activityDB = await Activity.findAll({include:{model:Country}});
     return activityDB;
 }
 const getActivitiesByName = async (name) => {
