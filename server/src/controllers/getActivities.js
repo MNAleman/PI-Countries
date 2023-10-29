@@ -17,7 +17,7 @@ const getActivitiesByName = async (name) => {
         });
 
         if (!response.length) {
-            throw new Error("No hay Actividades con ese nombre");
+            throw new Error("No activities with that name");
         }
 
         return response;

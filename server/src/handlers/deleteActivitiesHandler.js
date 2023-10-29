@@ -5,7 +5,7 @@ const deleteActivityHandler = async (req, res) => {
 
     try {
         await deleteActivityDB(id);
-        res.status(204).send();
+        res.status(204).json();
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

@@ -1,15 +1,17 @@
 const { Activity } = require("../db");
 
 const deleteActivityDB = async (id) => {
-    const deletedRows = await Activity.destroy({
+    const deletedActivity = await Activity.destroy({
         where: {
             id,
         },
     });
 
-    if (deletedRows === 0) {
-        throw new Error("No se encontró la actividad para eliminar");
+    if (deletedActivity === 0) {
+        throw new Error("Activity not found");
     }
+    return "Activity deleted successfully";
+
 };
 
 module.exports = {
