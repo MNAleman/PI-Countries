@@ -7,7 +7,7 @@ const getCountriesById = async (id) => {
         });
 
         if (!country) {
-            throw new Error("No hay países con ese ID");
+            throw new Error("There are no countries with that ID.");
         }
 
         return country;

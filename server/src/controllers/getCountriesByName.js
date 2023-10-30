@@ -13,7 +13,7 @@ const getAllCountriesByName = async (name) => {
         });
 
         if (!response.length) {
-            throw new Error("No hay países con ese nombre");
+            throw new Error("Country not found");
         }
 
         return response;

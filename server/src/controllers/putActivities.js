@@ -5,7 +5,7 @@ const updateActivityDB = async (id, name, difficulty, duration, season, countrie
     const updatedActivity = await Activity.findByPk(id);
 
     if (!updatedActivity) {
-        throw new Error("No se encontro la Actividad");
+        throw new Error("Activity not found");
     }
 
     // Actualizar los campos de la actividad

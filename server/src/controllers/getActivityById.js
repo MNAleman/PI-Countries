@@ -7,7 +7,7 @@ const getActivityById = async (id) => {
         });
 
         if (!activity) {
-            throw new Error("No hay actividades con ese ID");
+            throw new Error("There are no activities with that ID");
         }
 
         return activity;
